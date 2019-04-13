@@ -18,6 +18,11 @@ public class Main {
 		long time_since_last_update = 0; //Stores time since last update
 		
 		
+		//Create Model, View, Controller
+		Model model = new Model();
+		View view = new View(model);
+		Controller controller = new Controller(model, view);
+		
 		
 		//The Game LOOP
 		while (game_is_running) {
@@ -31,7 +36,8 @@ public class Main {
 			if (elapsed_time >= nanosec_per_frame) {
 				time_since_last_update = System.nanoTime(); //Store time since last update
 				
-				//Update Game
+				
+				view.repaint();
 				
 			}
 			
